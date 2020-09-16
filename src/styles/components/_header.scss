@@ -1,0 +1,260 @@
+.header {
+  .burger {
+    height: 3em;
+    width: 3em;
+    position: relative;
+    font-size: 12px;
+    cursor: pointer;
+    -webkit-transition: 0.2s all;
+    -o-transition: 0.2s all;
+    transition: 0.2s all;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .burger .burger-lines:after {
+    left: 0;
+    top: -1em;
+  }
+  .burger .burger-lines:before {
+    left: 1em;
+    top: 1em;
+  }
+  .burger:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 150%;
+    width: 150%;
+    top: -25%;
+    left: -25%;
+  }
+  .burger .burger-lines {
+    top: 50%;
+    margin-top: -0.125em;
+  }
+  .burger .burger-lines,
+  .burger .burger-lines:after,
+  .burger .burger-lines:before {
+    pointer-events: none;
+    display: block;
+    content: "";
+    width: 100%;
+    border-radius: 0.25em;
+    background-color: white;
+    height: 0.25em;
+    position: absolute;
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+  }
+  .burger .burger-lines:after {
+    left: 0;
+    top: -1em;
+  }
+  .burger .burger-lines:before {
+    left: 1em;
+    top: 1em;
+  }
+  .burger.burger-squeeze .burger-lines,
+  .burger.burger-squeeze .burger-lines:after,
+  .burger.burger-squeeze .burger-lines:before {
+    -webkit-transition: 0.2s top 0.2s, 0.1s left, 0.2s transform,
+      0.4s background-color 0.2s;
+    -o-transition: 0.2s top 0.2s, 0.1s left, 0.2s transform,
+      0.4s background-color 0.2s;
+    transition: 0.2s top 0.2s, 0.1s left, 0.2s transform,
+      0.4s background-color 0.2s;
+  }
+
+  .burger.burger-squeeze .burger-lines:after,
+  .burger.burger-squeeze .burger-lines:before {
+    width: 2em;
+  }
+
+  .burger.burger-squeeze.open .burger-lines,
+  .burger.burger-squeeze.open .burger-lines:after,
+  .burger.burger-squeeze.open .burger-lines:before {
+    -webkit-transition: 0.2s background-color, 0.2s top, 0.2s left,
+      0.2s transform 0.15s;
+    -o-transition: 0.2s background-color, 0.2s top, 0.2s left,
+      0.2s transform 0.15s;
+    transition: 0.2s background-color, 0.2s top, 0.2s left, 0.2s transform 0.15s;
+  }
+
+  .burger.burger-squeeze.open .burger-lines {
+    background-color: transparent;
+  }
+
+  .burger.burger-squeeze.open .burger-lines:before,
+  .burger.burger-squeeze.open .burger-lines:after {
+    left: 0.5em;
+    top: 0px;
+  }
+
+  .burger.burger-squeeze.open .burger-lines:before {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .burger.burger-squeeze.open .burger-lines:after {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  min-height: 400px;
+  border-top: 3px solid $portFolio2;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../assets/images/header/hero-header-pic.jpg") right center/cover
+      no-repeat;
+  height: 100vh;
+  overflow: hidden;
+
+  @include respond(xs) {
+    max-height: 300px;
+  }
+  &__nav {
+    left: 0;
+    top: 0;
+    &.fixed {
+      a {
+        color: white;
+        @include transitionAll(0.2s);
+      }
+
+      position: fixed !important;
+
+      z-index: 100;
+      &::before {
+        background: $portFolio4;
+        box-shadow: 0 0 20px 10px rgba($color: black, $alpha: 0.1) !important;
+        @include pseudoBase;
+        animation: translatingHeaderBg 0.5s ease-in-out forwards;
+      }
+    }
+    height: 4.375rem;
+    line-height: 4.375rem;
+  }
+
+  &__logo {
+    line-height: 4.375rem;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background: url("../assets/images/header/header-mask.png") no-repeat center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-size: cover;
+  }
+
+  &__nav-list {
+    list-style-type: none;
+    font-size: 1.25rem;
+
+    a {
+      text-decoration: none;
+      color: $portFolio2;
+      position: relative;
+      display: block;
+      padding: 0rem 1rem;
+      z-index: 1;
+
+      &:hover,
+      &:focus {
+        color: $white !important;
+        text-decoration: none;
+      }
+      span {
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        background-color: $portFolio2;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        transform: scaleY(0);
+        transition: all 0.3s;
+        transform-origin: top;
+      }
+
+      &:hover span {
+        transform: scaleY(1);
+      }
+      span:nth-of-type(2) {
+        left: 25%;
+        transition-delay: 0.1s;
+      }
+
+      span:nth-of-type(3) {
+        left: 50%;
+        transition-delay: 0.2s;
+      }
+
+      span:nth-of-type(4) {
+        left: 75%;
+        transition-delay: 0.3s;
+      }
+    }
+  }
+
+  &__content {
+    @include absoluteMiddle;
+  }
+
+  &__heading-main {
+    font-size: 3.5rem;
+
+    @include respond(xs) {
+      font-size: 3rem;
+    }
+  }
+
+  &__web-development {
+    &__variable {
+      &::before {
+        content: "Awesome";
+        animation: word-switch 9s infinite;
+      }
+    }
+  }
+}
+
+@keyframes word-switch {
+  0% {
+    content: "Awesome";
+  }
+
+  20% {
+    content: "Fun";
+  }
+
+  40% {
+    content: "Creative";
+  }
+
+  60% {
+    content: "Fabulous";
+  }
+
+  80% {
+    content: "Easy";
+  }
+
+  100% {
+    content: "Useful";
+  }
+}
+
+@keyframes translatingHeaderBg {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

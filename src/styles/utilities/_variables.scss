@@ -1,0 +1,99 @@
+$body-bg: #fff;
+
+$portFolio1: #edcfa9;
+$portFolio2: #e89f71;
+$portFolio3: #d57149;
+$portFolio4: #aa4a30;
+$white: #fff;
+$footer: #290001;
+
+$theme-colors: (
+  "portfolio1": $portFolio1,
+  "portfolio2": $portFolio2,
+  "portfolio3": $portFolio3,
+  "portfolio4": $portFolio4,
+  "white": $white,
+  "footer": $footer,
+);
+
+$btn-transition: all 0.35s ease-in;
+
+$border-radius: 5px;
+
+$spacer: 1rem !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+
+$spacers: map-merge(
+  (
+    0: 0,
+    1: (
+      $spacer * 0.25,
+    ),
+    2: (
+      $spacer * 0.5,
+    ),
+    3: $spacer,
+    4: (
+      $spacer * 1.5,
+    ),
+    5: (
+      $spacer * 3,
+    ),
+    6: (
+      $spacer * 4,
+    ),
+    7: (
+      $spacer * 5,
+    ),
+    8: (
+      $spacer * 6,
+    ),
+    9: (
+      $spacer * 7,
+    ),
+    10: (
+      $spacer * 8,
+    ),
+  ),
+  $spacers
+);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes: map-merge(
+  (
+    5: 5%,
+    10: 10%,
+    15: 15%,
+    20: 20%,
+    25: 25%,
+    30: 30%,
+    35: 35%,
+    40: 40%,
+    45: 45%,
+    50: 50%,
+    55: 55%,
+    60: 60%,
+    65: 65%,
+    70: 70%,
+    75: 75%,
+    80: 80%,
+    85: 85%,
+    90: 90%,
+    95: 95%,
+    100: 100%,
+    auto: auto,
+  ),
+  $sizes
+);
+
+// bos-shadow
+
+$box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.75);
+
+// sidebar
+$sidebar-btn-width: 50px;
+$sidebar-btn-height: 50px;
+$sidebar-minwidth: 20rem;

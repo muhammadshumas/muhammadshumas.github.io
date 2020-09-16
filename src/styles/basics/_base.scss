@@ -1,0 +1,158 @@
+body {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 93.75% !important;
+
+  @include respond(lg) {
+    font-size: 85% !important;
+  }
+  @include respond(md) {
+    font-size: 75% !important;
+  }
+}
+
+.underline {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    @include pseudoBase;
+    width: 50%;
+    height: 5px;
+    background: white;
+    top: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.section-margin {
+  margin: 1.5rem 0;
+}
+
+.section-padding {
+  padding: 2rem 0;
+}
+
+.box-shadow {
+  box-shadow: 0 0 20px 10px rgba($color: $portFolio4, $alpha: 0.1) !important;
+}
+
+::-webkit-scrollbar {
+  width: 12.5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2.5px 2px rgba($color: $portFolio4, $alpha: 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, $portFolio3 0% 20%, $portFolio1);
+  border-radius: 5px;
+}
+
+%shinning-border {
+  transition: all 0.5s;
+  opacity: 0;
+  position: absolute;
+}
+
+.shinning-border1 {
+  @extend %shinning-border;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, transparent, $portFolio4);
+  animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shinning-border2 {
+  @extend %shinning-border;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+  background: linear-gradient(to bottom, transparent, $portFolio4);
+  animation: animate2 2s linear infinite 1s;
+}
+
+@keyframes animate2 {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.shinning-border3 {
+  @extend %shinning-border;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(to left, transparent, $portFolio4);
+  animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.shinning-border4 {
+  @extend %shinning-border;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 5px;
+  background: linear-gradient(to top, transparent, $portFolio2);
+  animation: animate4 2s linear infinite 1s;
+}
+
+@keyframes animate4 {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none !important;
+}
+
+.slide-in {
+  animation: slideIn 0.75s cubic-bezier(0.56, 0.48, 0.7, 0.95);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

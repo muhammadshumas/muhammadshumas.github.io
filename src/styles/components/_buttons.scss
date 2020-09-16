@@ -1,0 +1,43 @@
+.btn {
+  position: relative;
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .btn-outline-#{$color} {
+    background: none;
+    color: $white;
+    text-transform: uppercase;
+    z-index: 1;
+    position: relative;
+    color: $value;
+    overflow: hidden;
+    @include transitionAll(0.3s);
+
+    &:hover,
+    &:focus {
+      color: $white !important;
+      background: none !important;
+      &::before {
+        height: 190%;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $value;
+      z-index: -1;
+      border-radius: 0 0 50% 50%;
+      height: 0%;
+      @include transitionAll(0.3s);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.letter-spacing-lg {
+  letter-spacing: 3px;
+}
+.letter-spacing-md {
+  letter-spacing: 2px;
+}
+.letter-spacing-sm {
+  letter-spacing: 1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Oswald", sans-serif !important;
+}
+
+h1 {
+  @include respond(xs) {
+    font-size: 2rem !important;
+  }
+}

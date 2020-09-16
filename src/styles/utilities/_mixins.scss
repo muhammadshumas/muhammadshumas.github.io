@@ -1,0 +1,55 @@
+@mixin transitionAll($duration, $delay: 0s) {
+  transition: all $duration $delay ease-in !important;
+}
+
+@mixin absoluteMiddle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin pseudoBase {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Media Queries mixin
+
+// Content allows us to pass any content to mixin
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint == lg) {
+    @media (max-width: 1199px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == md) {
+    @media (max-width: 991px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == sm) {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == xs) {
+    @media (max-width: 575px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == xsmb) {
+    @media (max-width: 380px) {
+      @content;
+    }
+  }
+}

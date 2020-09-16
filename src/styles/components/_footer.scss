@@ -1,0 +1,40 @@
+.footer {
+  font-size: 0.8125rem;
+
+  &__social {
+    a {
+      width: 50px;
+      height: 50px;
+      z-index: 5;
+      transition: 0.3s linear;
+      position: relative;
+    }
+    a::before,
+    a::after {
+      content: "";
+      position: absolute;
+      border-color: $portFolio1 !important;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      transition: 0.3s linear;
+    }
+
+    a:hover {
+      transform: scale(0.8);
+    }
+
+    a:hover::before {
+      border-left: 2px solid;
+      border-right: 2px solid;
+      transform: skewX(20deg);
+    }
+
+    a:hover::after {
+      border-top: 2px solid;
+      border-bottom: 2px solid;
+      transform: skewY(-20deg);
+    }
+  }
+}

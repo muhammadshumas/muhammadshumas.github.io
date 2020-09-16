@@ -1,0 +1,74 @@
+@each $color, $value in $theme-colors {
+  .input-#{$color}-container,
+  .input-#{$color}-container {
+    &__icon {
+      top: 25%;
+    }
+    position: relative;
+
+    &.focused {
+      &::after {
+        transform: scaleX(1);
+      }
+      input {
+        &::placeholder {
+          color: white !important;
+        }
+      }
+    }
+    &::after {
+      @include pseudoBase;
+      top: auto;
+      bottom: 0;
+      height: 3px;
+      background: $white;
+      transform: scaleX(0);
+
+      z-index: 1;
+      @include transitionAll(0.3s);
+    }
+  }
+  input[type="text"].input-#{$color},
+  input[type="email"].input-#{$color} {
+    border: none;
+    border-bottom: solid 3px $value;
+    background: transparent;
+    border-radius: 0;
+    color: $value;
+    position: relative;
+
+    &::placeholder {
+      color: $value;
+      @include transitionAll(0.1s);
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: none;
+
+      &::placeholder {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .textarea-#{$color} {
+    background: transparent !important;
+    overflow: auto !important;
+    border: solid 3px $value !important;
+
+    &::placeholder {
+      color: $value !important;
+      @include transitionAll(0.1s);
+    }
+    &:focus {
+      box-shadow: none !important;
+      border-color: white !important;
+
+      &::placeholder {
+        color: white !important;
+        font-size: 0.75rem;
+      }
+    }
+  }
+}

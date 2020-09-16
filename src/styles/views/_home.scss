@@ -1,0 +1,231 @@
+section.skills {
+  .underline {
+    &::after {
+      background: $portFolio4;
+    }
+  }
+}
+
+.services {
+  background: linear-gradient(45deg, $portFolio1, $portFolio4);
+
+  &__col {
+    @include transitionAll(0.4s);
+
+    &:hover {
+      transform: scale(1.01) translateY(-10px);
+      z-index: 30;
+    }
+  }
+  &__img-container {
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 3px 15px rgba($color: $portFolio4, $alpha: 0.2);
+    z-index: 1;
+  }
+  p {
+    font-size: 0.9375rem;
+  }
+
+  &__service {
+    &__main > div:first-of-type {
+      @include respond(md) {
+        max-width: 70%;
+        flex-basis: 70%;
+        // @include respond(sm) {
+        //   font-size: 65% !important;
+        // }
+        @include respond(xs) {
+          font-size: 65% !important;
+          max-width: 100%;
+          flex-basis: 100%;
+        }
+      }
+    }
+    &__main > div:nth-of-type(2) {
+      @include respond(md) {
+        flex: 1;
+      }
+    }
+    overflow: hidden;
+
+    &:hover {
+      .shinning-border1,
+      .shinning-border2,
+      .shinning-border3,
+      .shinning-border4 {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.recent-work {
+  &__work {
+    position: relative;
+    overflow: hidden;
+
+    &__content {
+      top: 0;
+      left: 0;
+      background: rgba($color: $portFolio4, $alpha: 0.95);
+      transform: scale(1.2);
+      opacity: 0;
+      @include transitionAll(0.4s);
+
+      &__title {
+        transform: translateY(-30px);
+        opacity: 0;
+        @include transitionAll(0.25s, 0.3s);
+      }
+      &__view {
+        transform: translateY(30px);
+        opacity: 0;
+        transition: transform 0.25s 0.4s ease-in, opacity 0.3s ease-in-out !important;
+      }
+    }
+
+    &:hover {
+      .recent-work__work__content {
+        &__title,
+        &__view {
+          transform: translateY(0px);
+          opacity: 1;
+        }
+        transform: scaleX(1);
+        opacity: 1;
+      }
+      .recent-work__work__img-container {
+        transform: scale(1.1);
+      }
+    }
+    &__img-container {
+      max-height: 300px;
+      overflow: hidden;
+      @include transitionAll(0.2s);
+    }
+  }
+}
+
+.team {
+  background: linear-gradient(
+    to right,
+    rgba($color: $portFolio4, $alpha: 0.95),
+    rgba($color: $portFolio1, $alpha: 0.95)
+  );
+  height: 22rem;
+  &__member {
+    &__content {
+      @include transitionAll(0.3s);
+    }
+  }
+  .card {
+    opacity: 0.95;
+    overflow: hidden;
+    &:hover {
+      opacity: 1;
+      .team__member__content {
+        transform: translateY(-50px) scale(1.02);
+        @include respond(sm) {
+          transform: translateY(0) scale(1.02);
+        }
+      }
+    }
+  }
+  &__contact {
+    bottom: 0;
+    transform: translateY(50px) scale(0.95);
+    position: absolute;
+    @include respond(sm) {
+      transform: none;
+      position: static;
+    }
+  }
+
+  @include respond(sm) {
+    height: auto;
+  }
+}
+
+.reviews {
+  margin-top: 12rem;
+  background: linear-gradient(
+      to right,
+      rgba($color: $portFolio4, $alpha: 0.95),
+      rgba($color: $portFolio1, $alpha: 0.95)
+    ),
+    url(../assets/images/header/hero-header-pic1.jpg) center/cover no-repeat;
+
+  .example-3d {
+    position: relative;
+    overflow: hidden;
+    height: 410px;
+    padding: 15px;
+  }
+  .swiper {
+    width: 350px !important;
+    height: 350px;
+    @include absoluteMiddle;
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      background-color: $portFolio4;
+      background-position: center;
+      background-size: cover;
+      color: white;
+    }
+    .swiper-pagination {
+      /deep/ .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background-color: white;
+      }
+    }
+
+    @include respond(xsmb) {
+      width: 300px !important;
+      height: 300px;
+    }
+  }
+
+  @include respond(sm) {
+    margin-top: 1rem;
+  }
+}
+
+.contact {
+  background: linear-gradient(
+      to right,
+      rgba($color: $portFolio4, $alpha: 0.95),
+      rgba($color: $portFolio1, $alpha: 0.95)
+    ),
+    url(../assets/images/contact/bg.jpg) center top/cover no-repeat;
+
+  &__mediums {
+    &__medium {
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      flex-basis: 48%;
+      max-width: 48%;
+
+      @include respond(xsmb) {
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+  &__form {
+    background: rgba($color: $portFolio4, $alpha: 0.7);
+  }
+
+  @include respond(sm) {
+    background: linear-gradient(
+        to bottom,
+        rgba($color: $portFolio4, $alpha: 0.95),
+        rgba($color: $portFolio1, $alpha: 0.95)
+      ),
+      url(../assets/images/contact/bg.jpg) center top/cover no-repeat;
+  }
+}

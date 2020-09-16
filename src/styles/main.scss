@@ -1,0 +1,24 @@
+// font-family: "Oswald", sans-serif;
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,700;1,800&family=Oswald:wght@400;500;600;700&display=swap");
+
+// utilities
+@import "./utilities/variables";
+@import "./utilities/mixins";
+
+// components
+@import "./components/buttons";
+@import "./components/header";
+@import "./components/form";
+@import "./components/footer";
+@import "./components/scroll-top";
+
+// basics
+@import "./basics/typography";
+@import "./basics/base";
+
+//views
+@import "./views//home";
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-vue/src/index.scss";
